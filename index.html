@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <meta name="description" content="Aavritti Soni is a software engineer focused on reliable backend systems, distributed data, and thoughtful product experiences.">
+  <title>Aavritti Soni — Software Engineer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172521;
+      --muted: #64716b;
+      --accent: #176b57;
+      --accent-dark: #104b3e;
+      --mint: #dcefe5;
+      --paper: #fffefa;
+      --canvas: #f4f3ee;
+      --line: #dce2dc;
+      --gold: #e9b75e;
+      --shadow: 0 18px 55px #1725210c;
+      --max: 1120px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; background: #f4f3eedf; border-bottom: 1px solid #dce2dcaa; backdrop-filter: blur(14px); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: -.04em; }
+    .brand span { color: var(--accent); }
+    .navlinks { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 28px); }
+    .navlinks a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 650; }
+    .navlinks a:hover { color: var(--accent); }
+    .navlinks .nav-cta { color: var(--accent); border: 1px solid #a9c8ba; border-radius: 999px; padding: 8px 14px; }
+    .hero { padding: clamp(54px, 10vw, 118px) 0 76px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr); align-items: end; gap: 52px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--gold); }
+    h1 { max-width: 780px; margin: 0; font-size: clamp(3.1rem, 8vw, 6.7rem); letter-spacing: -.075em; line-height: .98; }
+    h1 .period { color: var(--accent); }
+    .hero-copy { max-width: 650px; margin: 26px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); }
+    .hero-copy strong { color: var(--ink); font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 48px; padding: 0 19px; border-radius: 9px; border: 1px solid var(--accent); text-decoration: none; font-weight: 750; transition: transform .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--accent); color: white; }
+    .button-primary:hover { background: var(--accent-dark); }
+    .button-secondary { color: var(--accent); background: transparent; }
+    .button svg { width: 17px; height: 17px; }
+    .hero-card { position: relative; padding: 25px; border: 1px solid #b9d4c6; border-radius: 16px; background: var(--mint); box-shadow: var(--shadow); }
+    .hero-card::after { content: ""; position: absolute; right: 20px; top: 20px; width: 10px; height: 10px; border-radius: 50%; background: #4c9b70; box-shadow: 0 0 0 5px #4c9b7024; }
+    .card-kicker { margin: 0; color: var(--accent-dark); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-card h2 { margin: 14px 0 6px; font-size: 1.45rem; line-height: 1.25; letter-spacing: -.035em; }
+    .hero-card p { margin: 0; color: #476258; font-size: .94rem; }
+    .hero-card .mini-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; color: var(--accent-dark); font-size: .9rem; font-weight: 750; text-decoration: none; }
+    .hero-card .mini-link:hover { text-decoration: underline; }
+    .quickfacts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; margin-top: 58px; border: 1px solid var(--line); border-radius: 12px; background: var(--line); }
+    .fact { min-height: 91px; padding: 17px 20px; background: #fbfaf6; }
+    .fact strong { display: block; font-size: 1.05rem; letter-spacing: -.02em; }
+    .fact span { color: var(--muted); font-size: .83rem; }
+    .section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 34px; }
+    .section-head h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.05; letter-spacing: -.06em; }
+    .section-head p { max-width: 430px; margin: 0; color: var(--muted); font-size: .96rem; }
+    .section-label { margin: 0 0 11px; color: var(--accent); font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .experience { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 32px; padding: 26px 0 30px; border-top: 1px solid var(--line); }
+    .experience:first-of-type { border-top: 0; }
+    .exp-meta { color: var(--muted); font-size: .9rem; }
+    .exp-meta time { display: block; color: var(--accent); font-size: .84rem; font-weight: 750; }
+    .exp-meta .place { display: block; margin-top: 5px; }
+    .exp-body h3 { margin: 0; font-size: 1.2rem; letter-spacing: -.025em; }
+    .exp-body .company { margin: 3px 0 13px; color: var(--muted); font-weight: 650; }
+    .exp-body ul { display: grid; gap: 9px; margin: 0; padding-left: 19px; color: #3e4b45; }
+    .exp-body li::marker { color: var(--accent); }
+    .skills-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 36px; }
+    .skills-intro { color: var(--muted); }
+    .skill-list { display: grid; gap: 18px; }
+    .skill-group { padding-bottom: 17px; border-bottom: 1px solid var(--line); }
+    .skill-group:last-child { border: 0; }
+    .skill-group h3 { margin: 0 0 11px; font-size: .82rem; color: var(--accent-dark); letter-spacing: .04em; text-transform: uppercase; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 6px 11px; border: 1px solid #d7ded7; border-radius: 999px; background: #fbfaf7; color: #34433c; font-size: .86rem; }
+    .project-card { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; padding: 28px; border: 1px solid #c6d9ce; border-radius: 14px; background: linear-gradient(135deg, #e9f3ec, #f8f7f1 78%); }
+    .project-card h3 { margin: 0; font-size: 1.4rem; letter-spacing: -.035em; }
+    .project-card .project-type { margin: 5px 0 16px; color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .project-card ul { display: grid; gap: 9px; margin: 0; padding-left: 19px; color: #3e4b45; }
+    .project-card li::marker { color: var(--accent); }
+    .project-icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 13px; background: var(--accent); color: white; font-size: 1.5rem; }
+    .contrib { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 17px; }
+    .contrib-item { padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+    .contrib-item h4 { margin: 0 0 7px; font-size: 1rem; }
+    .contrib-item p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .education { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu-card { min-height: 190px; padding: 24px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
+    .edu-card time { color: var(--accent); font-size: .83rem; font-weight: 750; }
+    .edu-card h3 { margin: 13px 0 4px; font-size: 1.08rem; letter-spacing: -.02em; }
+    .edu-card .degree { margin: 0; color: var(--muted); }
+    .edu-card .coursework { margin: 12px 0 0; color: #58665f; font-size: .86rem; }
+    .contact { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 32px; padding: 35px; border-radius: 16px; background: var(--ink); color: white; }
+    .contact h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.1; letter-spacing: -.06em; }
+    .contact p { max-width: 500px; margin: 10px 0 0; color: #c4d0ca; }
+    .contact .button { border-color: #a9d4c0; color: white; white-space: nowrap; }
+    .contact .button:hover { background: #ffffff12; }
+    .contact-mail { color: #c7efda; }
+    footer { padding: 28px 0 38px; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner p { margin: 0; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    @media (max-width: 760px) {
+      .nav { min-height: 60px; }
+      .navlinks { gap: 12px; }
+      .navlinks a { font-size: .82rem; }
+      .navlinks a:nth-child(2), .navlinks a:nth-child(3) { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-card { max-width: 420px; }
+      .quickfacts { margin-top: 34px; }
+      .fact { padding: 14px; }
+      .fact strong { font-size: .94rem; }
+      .fact span { font-size: .75rem; }
+      .section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 13px; }
+      .experience { grid-template-columns: 1fr; gap: 9px; }
+      .exp-meta { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+      .exp-meta time { width: 100%; }
+      .skills-layout { grid-template-columns: 1fr; gap: 20px; }
+      .contact { grid-template-columns: 1fr; padding: 27px; }
+      .contact .button { width: fit-content; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(var(--max), calc(100% - 30px)); }
+      .navlinks .nav-cta { padding: 7px 10px; }
+      .quickfacts { grid-template-columns: 1fr; }
+      .fact { min-height: 0; }
+      .contrib, .education { grid-template-columns: 1fr; }
+      .project-card { padding: 22px; }
+      .footer-inner { display: block; }
+      .footer-inner p + p { margin-top: 7px; }
+    }
+    @media print {
+      :root { --canvas: white; --paper: white; }
+      body { background: white; font-size: 10pt; }
+      .topbar, .hero-actions, .contact .button, footer { display: none !important; }
+      .wrap { width: 100%; }
+      .hero { padding: 20px 0; }
+      .hero-grid { grid-template-columns: 1fr 240px; gap: 25px; }
+      h1 { font-size: 42pt; }
+      .section { padding: 24px 0; break-inside: avoid; }
+      .experience, .edu-card, .project-card, .contrib-item { break-inside: avoid; }
+      .quickfacts { margin-top: 20px; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">Aavritti<span>.</span></a>
+      <div class="navlinks">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Selected work</a>
+        <a href="#education">Education</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Software engineer · Raleigh, NC</p>
+          <h1 id="hero-title">Building systems<br>that hold up<span class="period">.</span></h1>
+          <p class="hero-copy">I'm <strong>Aavritti Soni</strong>, a software engineer with experience across backend platforms, distributed data systems, and full-stack products. I care about reliable services, clear interfaces, and measurable improvements.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="aavritti_soni_resume.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
+              Download resume
+            </a>
+            <a class="button button-secondary" href="#experience">Explore experience <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Current project">
+          <p class="card-kicker">Currently building</p>
+          <h2>Gluco: wearable health analytics</h2>
+          <p>Making wearable data easier to understand with explainable insights and conversational AI.</p>
+          <a class="mini-link" href="https://github.com/aavritti/gluco">Explore the project <span aria-hidden="true">↗</span></a>
+        </aside>
+      </div>
+      <div class="quickfacts" aria-label="Career highlights">
+        <div class="fact"><strong>10M+ records</strong><span>processed through Kafka workflows</span></div>
+        <div class="fact"><strong>67% faster</strong><span>shipment replanning processing</span></div>
+        <div class="fact"><strong>900 hours</strong><span>saved each year through automation</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-label">Career path</p><h2 id="experience-title">Experience</h2></div>
+          <p>Building and improving production systems across e-commerce, financial services, and enterprise platforms.</p>
+        </div>
+
+        <article class="experience">
+          <div class="exp-meta"><time>Mar 2025 — Jul 2026</time><span class="place">Bangalore, India</span></div>
+          <div class="exp-body">
+            <h3>Senior Software Engineer III</h3><p class="company">Coupang <span aria-label="contract role">(Contract)</span></p>
+            <ul>
+              <li>Enhanced a shipment replanning application, combining multiple transfer requests into one through a JavaScript UI and Java 17 / Spring Boot backend, reducing processing time by approximately 67%.</li>
+              <li>Ran resilience tests on AWS for traffic surges and API failures, tracked MTTR in Grafana, and implemented mitigations that cut recovery time by 33% (from 90 to 60 seconds).</li>
+              <li>Fixed a backlog transfer bug returning stale Elasticsearch results, reducing repeated fetches and cutting request response time by 2 ms.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience">
+          <div class="exp-meta"><time>Dec 2024 — Feb 2025</time><span class="place">Sydney, Australia</span></div>
+          <div class="exp-body">
+            <h3>Software Engineer II</h3><p class="company">Australian Securities Exchange</p>
+            <ul><li>Optimized Elasticsearch queries and indexes to improve read and write performance by 40%, reduce latency, and secure a Java application through backward-compatible dependency upgrades.</li></ul>
+          </div>
+        </article>
+
+        <article class="experience">
+          <div class="exp-meta"><time>Feb 2022 — Mar 2024</time><span class="place">Bangalore, India</span></div>
+          <div class="exp-body">
+            <h3>Software Engineer II</h3><p class="company">Goldman Sachs</p>
+            <ul>
+              <li>Engineered Kafka workflows to ingest 10M+ records into Elasticsearch, managed deployment and hosting on AWS, and reduced dependency on the Data Operations team by 45%.</li>
+              <li>Designed and deployed low-latency REST APIs with in-memory caching, reducing response time by 20% and increasing throughput.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience">
+          <div class="exp-meta"><time>Jun 2019 — Feb 2022</time><span class="place">Chennai, India</span></div>
+          <div class="exp-body">
+            <h3>Software Engineer</h3><p class="company">Bank of America</p>
+            <ul>
+              <li>Contributed to a full-stack migration and rebranding of a legacy platform using C#, Angular, .NET, and MySQL; designed internal dashboards for project managers and engineers.</li>
+              <li>Integrated Outlook, SharePoint, and Jira dashboards to streamline testing and bug tracking, improving efficiency by 32% and saving approximately 900 manual hours annually. Received Bronze and Silver Awards in 2020 and 2021.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-label">Tools of the trade</p><h2 id="skills-title">Technical skills</h2></div>
+          <p>A broad engineering toolkit, from application code and data systems to cloud infrastructure and delivery.</p>
+        </div>
+        <div class="skills-layout">
+          <p class="skills-intro">I work across the software lifecycle: designing APIs and data flows, building product features, and improving how services behave under load and failure.</p>
+          <div class="skill-list">
+            <div class="skill-group"><h3>Languages</h3><div class="tags"><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">C++</span><span class="tag">Python</span></div></div>
+            <div class="skill-group"><h3>Web & frameworks</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">MVC</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span></div></div>
+            <div class="skill-group"><h3>Data & messaging</h3><div class="tags"><span class="tag">MySQL</span><span class="tag">Elasticsearch</span><span class="tag">Redis</span><span class="tag">Kafka</span><span class="tag">Databricks</span></div></div>
+            <div class="skill-group"><h3>Cloud & platforms</h3><div class="tags"><span class="tag">AWS</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></div>
+            <div class="skill-group"><h3>Engineering tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">SonarQube</span><span class="tag">Maven</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">CircleCI</span><span class="tag">Swagger / OpenAPI</span><span class="tag">Grafana</span><span class="tag">Gremlin</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-label">Selected work</p><h2 id="work-title">Projects & contributions</h2></div>
+          <p>Recent applied work across health analytics, AI-assisted exploration, and machine-learning projects.</p>
+        </div>
+        <article class="project-card">
+          <div>
+            <p class="project-type">AI-powered wearable health analytics</p>
+            <h3>Gluco</h3>
+            <ul>
+              <li>Integrated Clerk authentication and session verification in a FastAPI backend, supporting a team-developed wearable-data model built with scikit-learn that achieved 60.4% accuracy.</li>
+              <li>Integrated a conversational agent using the OpenAI Agents SDK and OpenRouter to answer questions and surface insights from wearable data.</li>
+            </ul>
+          </div>
+          <div class="project-icon" aria-hidden="true">✳</div>
+        </article>
+        <div class="contrib">
+          <article class="contrib-item"><h4>Smart kitchen inventory management</h4><p>Designed an algorithm for the food industry to streamline supply-chain workflows using machine learning.</p></article>
+          <article class="contrib-item"><h4>Automatic visual inspection of vegetables</h4><p>Developed a tomato surface-defect analysis application using dlib for object detection and warehouse defect scanning.</p></article>
+        </div>
+        <p class="skills-intro">Open-source contributions at IOTracx</p>
+      </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-label">Learning</p><h2 id="education-title">Education</h2></div>
+        </div>
+        <div class="education">
+          <article class="edu-card"><time>Expected May 2028</time><h3>North Carolina State University</h3><p class="degree">Master of Computer Science · USA</p><p class="coursework">Coursework: Design and Analysis of Algorithms, Automated Learning and Data Analysis, Software Engineering</p></article>
+          <article class="edu-card"><time>May 2019</time><h3>Vellore Institute of Technology</h3><p class="degree">Bachelor of Technology in Computer Science · India</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact">
+          <div><p class="section-label" style="color:#a9d4c0">Get in touch</p><h2 id="contact-title">Let’s build something reliable.</h2><p>For opportunities and collaboration, reach me at <a class="contact-mail" href="mailto:asoni5@ncsu.edu">asoni5@ncsu.edu</a>.</p></div>
+          <a class="button" href="mailto:asoni5@ncsu.edu">Send an email <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><p>© 2026 Aavritti Soni</p><p><a href="https://www.linkedin.com/in/Aavritti">LinkedIn</a> · <a href="https://github.com/aavritti">GitHub</a> · <a href="aavritti_soni_resume.pdf">PDF resume</a></p></div></footer>
+</body>
+</html>
